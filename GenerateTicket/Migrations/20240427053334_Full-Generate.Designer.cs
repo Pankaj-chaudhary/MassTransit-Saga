@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GenerateTicket.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20230802225023_TicketInfo")]
-    partial class TicketInfo
+    [Migration("20240427053334_Full-Generate")]
+    partial class FullGenerate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

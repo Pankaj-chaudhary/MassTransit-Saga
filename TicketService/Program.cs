@@ -12,6 +12,9 @@ builder.Services.AddControllers();
 var connectionString = builder.Configuration.GetConnectionString("DbConnection");
 builder.Services.AddDbContextPool<AppDbContext>(db => db.UseSqlServer(connectionString));
 
+// Register Swagger
+builder.Services.AddSwaggerGen();
+
 // Registe MassTransit
 builder.Services.AddMassTransit(cfg =>
 {
@@ -38,7 +41,11 @@ builder.Services.AddScoped<ITicketServices, TicketServices>();
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 var app = builder.Build();
 
-
+app.UseSwagger();
+app.UseSwaggerUI(c =>
+{
+    c.SwaggerEndpoint("/swagger/v1/swagger.json", "My MassTransit SAGA Api - Entry Point");
+});
 app.UseHttpsRedirection();
 
 app.UseAuthorization();

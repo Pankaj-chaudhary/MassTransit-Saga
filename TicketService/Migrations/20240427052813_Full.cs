@@ -3,26 +3,30 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace GenerateTicket.Migrations
+namespace TicketService.Migrations
 {
     /// <inheritdoc />
-    public partial class TicketInfo : Migration
+    public partial class Full : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "TicketInfo",
+                name: "Ticket",
                 columns: table => new
                 {
                     TicketId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Title = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Email = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    RequireDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Age = table.Column<int>(type: "int", nullable: false),
+                    Location = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     TicketNumber = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_TicketInfo", x => x.TicketId);
+                    table.PrimaryKey("PK_Ticket", x => x.TicketId);
                 });
         }
 
@@ -30,7 +34,7 @@ namespace GenerateTicket.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "TicketInfo");
+                name: "Ticket");
         }
     }
 }

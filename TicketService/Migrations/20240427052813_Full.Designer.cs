@@ -12,8 +12,8 @@ using TicketService.Models;
 namespace TicketService.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20230802210529_Ticket")]
-    partial class Ticket
+    [Migration("20240427052813_Full")]
+    partial class Full
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
